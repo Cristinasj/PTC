@@ -260,19 +260,6 @@ def topPoblacion(data):
     return res[:10,:]
 
 """
-    Como la función anterio pero devuelve datos de hombre y mujer 
-"""    
-def top10Max(data):
-    d = data[2:,:9]
-    l = [[e[0]] for e in d]
-    d = np.array(d)[:,1:].astype(float)
-    res = np.zeros((d.shape[0],d.shape[1]+1))
-    res[:,0] = [sum(e[:8])/8 for e in d]
-    res[:,1:] = d[:]        
-    res = np.hstack((l,res))
-    res = np.array(sorted(res,key=lambda x: float(x[1]), reverse=True))
-    return res[:10,:]
-"""
     param: 
         - array numpy con población total y por sexos de cada CA 
     return: 
@@ -295,30 +282,6 @@ def generarGraficoBarras(data):
     plt.close()
     return "imagenes/R3.png"
 
-"""
-    param: 
-        - array numpy con población total y por sexos de cada CA 
-    return: 
-        - nombre del gráfico resultante 
-    efecto: 
-        - genera una imagen png con el crecimiento de población 
-"""
-def generarGraficoLineas(data):
-    lista = [e[2:].astype(float) for e in data]
-    st = ["2017","2016","2015","2014","2013","2012","2011","2010"]
-    labels = [e[0] for e in data]
-    X = np.arange(8)
-    plt.figure("lineal",figsize=(20, 15))
-    for e in lista:
-        plt.plot(e)   # Dibuja el gráfico
-    plt.title("Poblacion por años")   # Establece el título del gráfico
-    plt.xlabel("Año")   # Establece el título del eje x
-    plt.ylabel("Poblacion")   # Establece el título del eje y
-    plt.legend(labels,loc="upper right")
-    plt.xticks(X, st )
-    plt.savefig('imagenes/R5.png')
-    plt.close()
-    return 'imagenes/R5.png'
 
 
 
