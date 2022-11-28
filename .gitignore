@@ -10,5 +10,7 @@ entradas/
 imagenes/
 memoria.odt
 resultados/
+*CoppeliaSim*
+__pycache__
 
 
