@@ -3,7 +3,6 @@ import tkinter
 from tkinter import * 
 from tkinter.messagebox import * # Para showinfo, etc  
 
-root = tkinter.Tk() 
 
 def conectarSimulador(): 
     global root, stringEstado, clientID, botonCapturar, botonDesconectar, estaSimulacionDetenida
@@ -22,17 +21,46 @@ def conectarSimulador():
 def funcionalidadCapturar(): 
     return 1 
 
-# Inicializamos tkinter  
+def funcionalidadConectar (): 
+    return True 
+
+def funcionalidadDesconectar (): 
+    return True 
+
+def funcionalidadAgrupar (): 
+    return True 
+
+def funcionalidadCaracteristicas (): 
+    return True 
+
+def funcionalidadClasificador (): 
+    return True
+
+# Inicialización tkinter  
+root = tkinter.Tk() 
 root.geometry("700x300")
 root.title("Práctica PTC Tkinter Robótica")
+
+# Variables necesarias para GUI 
 stringEstado = StringVar() 
 stringEstado.set("No conectado a VREP")
-botonCapturar = Button(root, text="Capturar", command=funcionalidadCapturar, state=DISABLED)
-botonDesconectar = Button(root, text="Detener y desconectar VREP")
 estaSimulacionDetenida = True
+etiquetaAdvertencia = Label(root, text="Es necesario ejecutar el simulador VREP")
+
+# Botones ON OFF 
+botonDesconectar = Button(root, text="Detener y desconectar VREP")
+botonConectar = Button(root, text="Conectar con VREP", command=funcionalidadConectar)
+
+# Botones apartados 
+botonCapturar = Button(root, text="Capturar", command=funcionalidadCapturar, state=DISABLED)
+bottonDesconectar = Button(root, text="Detener y Desconectar VREP", command=funcionalidadDesconectar)
+botonAgrupar = Button(root, text="Agrupar", command=funcionalidadAgrupar, state=DISABLED)
+botonCaracteristicas = Button(root, text="Extraer caracteristicas", command=funcionalidadCaracteristicas, state=DISABLED)
+botonClasificador = Button(root, text="Entrenar clasificador", command=funcionalidadClasificador)
+
+
 
 # Columna 1
-etiquetaAdvertencia = Label(root, text="Es necesario ejecutar el simulador VREP")
-botonConectar = Button(root, text="Conectar con VREP", command=conectarSimulador)
+
 
 root.mainloop() 
