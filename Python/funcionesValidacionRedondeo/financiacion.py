@@ -14,7 +14,6 @@ def leerFloat2Decimales():
                 print("Hay digitos no validos", digito)
         if esCorrecto:
             precioLista=precio.split(".")
-            if (len(precioLista) >1): print("Hay decimales:", len(precioLista[1]))
             if len(precioLista)==1 or (len(precioLista) >1 and len(precioLista[1])<3):
                 #Todo está bien y podemos salir del while de validación
                 seguirPidiendo=False
@@ -47,4 +46,3 @@ def redondear(numero,decimales):
 def calularCapitalAnual(capitalInicial,interes):
 	return capitalInicial+capitalInicial*interes/100
 
-print(redondear(4.1111111, 3))

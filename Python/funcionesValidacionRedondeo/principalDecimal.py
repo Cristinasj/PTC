@@ -10,5 +10,5 @@ eurosD = Decimal(euros)
 interesD = Decimal(interes)
 capitalAcumulado = eurosD
 for i in range(agnos): 
-    capitalAcumulado += capitalAcumulado*interesD
-print("Capital acumulado: {}".format(capitalAcumulado))
+    capitalAcumulado += capitalAcumulado*interesD/100
+print("Capital acumulado: {}".format(financiacion.redondear((float)(capitalAcumulado), 2)))

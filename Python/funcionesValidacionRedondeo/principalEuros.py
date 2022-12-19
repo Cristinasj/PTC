@@ -8,4 +8,4 @@ agnos = financiacion.leerInt()
 capitalAcumulado = euros 
 for i in range(agnos): 
     capitalAcumulado = financiacion.calularCapitalAnual(capitalAcumulado, interes)
-print("Capital acumulado: {}".format(capitalAcumulado))
+print("Capital acumulado: {}".format(financiacion.redondear(capitalAcumulado, 2)))
