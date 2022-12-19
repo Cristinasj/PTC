@@ -1,4 +1,4 @@
-import lib.vrep as vrep 
+import vrep as vrep 
 import tkinter
 from tkinter import * 
 from tkinter.messagebox import * # Para showinfo, etc  
@@ -22,8 +22,9 @@ headerPTC = "Práctica PTC Tkinter Robótica"
 
 def funcionalidadConectar(): 
     global root, IDcliente, stringEstado, botonCapturar, botonDesconectar, estaSimulacionDetenida
+    print("Funcinalidad conectar")
     vrep.simxFinish(-1)
-    IDcliente = vrep.simStart('127.0.0.1', 19999, True, True, 5000, 5)
+    IDcliente = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
 
     if IDcliente != -1: 
         showinfo(headerPTC, "Conexión con VREP establecida")
@@ -53,20 +54,19 @@ def funcionalidadCapturar():
         if haDichoSi: 
             capturar.funcionalidad(IDcliente, ficheroElegido, valoresPorDefecto)
 
-        botonAgrupar["state"] = "normal"
+    botonAgrupar["state"] = "normal"
 
 def funcionalidadDesconectar (): 
     return True 
 
-def funcionalidadAgrupar (): 
-    global botonExtraer 
-    botonExtraer["state"] = "normal"
+def funcionalidadAgrupar ():  
+    botonCaracteristicas["state"] = "normal"
 
 def funcionalidadCaracteristicas (): 
-    return True 
+    botonClasificador["state"] = "normal" 
 
 def funcionalidadClasificador (): 
-    return True
+    botonPredecir["state"] = "normal"
 
 def funcionalidadPredecir (): 
     return True 
